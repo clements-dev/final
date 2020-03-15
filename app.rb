@@ -29,16 +29,19 @@ before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
 end
 
+# Main page
 get "/" do
     @events_request = events_table.where(event_type: "request").all.to_a
     @events_coaching = events_table.where(event_type: "coaching").all.to_a
     view "events"
 end
 
+# First step of event creation
 get "/events/new-1" do
     view "new_event1"
 end
 
+# Second step of event creation
 get "/events/new-2" do
     # Find the location coordinates
     results = Geocoder.search(params["set_location"])
@@ -65,6 +68,7 @@ get "/events/new-2" do
     end
 end
 
+# Create event in database
 post "/events/create" do
     @event = events_table.where(id: params["id"]).to_a[0]
     @userp_name = users_table.where(id: session["user_id"]).to_a[1]
@@ -100,6 +104,7 @@ get "/events/:id/rsvps/new" do
     view "new_rsvp"
 end
 
+# Create rsvp in database
 get "/events/:id/rsvps/create" do
     @event = events_table.where(id: params["id"]).to_a[0]
     @userp_name = users_table.where(id: session["user_id"]).to_a[1]
@@ -111,11 +116,13 @@ get "/events/:id/rsvps/create" do
     view "create_rsvp"
 end
 
+# First step of user creation
 get "/users/new-1" do
     # Open first step sign up
     view "new_user1"
 end
 
+# Second step of user creation
 get "/users/new-2" do
     # Find the location coordinates
     results = Geocoder.search(params["set_location"])
@@ -142,6 +149,7 @@ get "/users/new-2" do
     end
 end
 
+# Create user in database
 post "/users/create" do
     hashed_password = BCrypt::Password.create(params["password"])
     users_table.insert(name: params["name"], 
@@ -171,6 +179,7 @@ get "/logins/new" do
     view "new_login"
 end
 
+# Check and sign in if user credentials are right
 post "/logins/create" do
     user = users_table.where(email: params["email"]).to_a[0]
     if user && BCrypt::Password::new(user[:password]) == params["password"]
@@ -182,6 +191,7 @@ post "/logins/create" do
     end
 end
 
+# Logout
 get "/logout" do
     session["user_id"] = nil
     @current_user = nil
