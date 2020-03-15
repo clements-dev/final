@@ -15,6 +15,11 @@ before { puts; puts "--------------- NEW REQUEST ---------------"; puts }       
 after { puts; }                                                                       #
 #######################################################################################
 
+# put your API credentials here (found on your Twilio dashboard)
+account_sid = ENV["TWILIO_ACCOUNT_SID"]
+auth_token = ENV["TWILIO_AUTH_TOKEN"]
+
+client = Twilio::REST::Client.new(account_sid, auth_token)
 
 events_table = DB.from(:events)
 rsvps_table = DB.from(:rsvps)
@@ -139,6 +144,13 @@ post "/users/create" do
                         lat: params["lat"], 
                         lon: params["lon"])
     @signup_user = params["name"]
+
+    # Send text message
+    client.messages.create(
+        from: "+18479122565",
+        to: params["phone"],
+        body: "Welcome " + params["name"] + " to the DIY Platform!"
+        )
 
     view "create_user"
 end

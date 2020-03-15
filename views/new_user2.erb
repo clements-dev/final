@@ -1,45 +1,60 @@
 <h2>Sign Up - Step 2</h2>
 
-<form action="/users/create" method="post">
-  <div class="form-group">
-    <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Your name</label>
-    <input type="text" class="form-control" name="name">
-  </div>
-  <div class="form-group">
-    <label>Email address</label>
-    <input type="email" class="form-control" placeholder="name@example.com" name="email">
-  </div>
-  <div class="form-group">
-    <label>Mobile phone number</label>
-    <input type="text" class="form-control" name="phone">
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control" name="password">
-  </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <form action="/users/create" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
+            </div>
+            <div class="form-row">
+                <div class="col">
+                <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Your name</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" placeholder="name@example.com" name="email">
+            </div>
+            <div class="form-group">
+                <label>Mobile phone number</label>
+                <input type="text" class="form-control" placeholder="+19991234567" name="phone">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
 
-  <button type="submit" class="btn btn-primary">Sign Up</button>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
 
-  <div class="form-group">
-    <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+            <div class="form-group">
+                <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
+            </div>
+            <div class="form-row">
+                <div class="col">
+                <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <iframe
+                width="auto"
+                height="420"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+                &q=<%=@location_lat%>,<%=@location_lon%>&zoom=10" allowfullscreen>
+            </iframe>
+        </div>
     </div>
-    <div class="col">
-      <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
-    </div>
-  </div>
-</form>
+</div>

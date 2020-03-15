@@ -1,48 +1,53 @@
-<div class="row">
-    <div class="col-sm-9">
-        <h2>
-            <i class="far fa-calendar-alt"></i>
-            <%= @event[:date] %>
-        </h2>
-        <h2><%= @event[:title] %></h2>
-        <p><%= @event[:description] %></p>
-        <% for rsvp in @rsvps %>
-            <div class="media">
-                <% if rsvp[:attending] %>
-                    <i class="fas fa-thumbs-up fa-3x mr-3"></i>
+<div class="container">    
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>
+                <i class="far fa-calendar-alt"></i>
+                <%= @event[:date] %>
+            </h2>
+            <h2><%= @event[:title] %></h2>
+            <p><%= @event[:description] %></p>
+            <% for rsvp in @rsvps %>
+                <div class="media">
+                    <% if rsvp[:attending] %>
+                        <i class="fas fa-thumbs-up fa-3x mr-3"></i>
+                    <% else %>
+                        <i class="fas fa-thumbs-down fa-3x mr-3"></i>
+                    <% end %>
+                    <div class="media-body">
+                        <h5 class="mt-0"><%= @users_table.where(id: rsvp[:user_id]).to_a[0][:name] %></h5>
+                        <%= rsvp[:comments] %>
+                    </div>
+                </div>
+            <% end %>
+            <p class="mt-5">
+                <% if @current_user %>
+                    <a href="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-primary">RSVP now!</a>
                 <% else %>
-                    <i class="fas fa-thumbs-down fa-3x mr-3"></i>
+                    <a href="/logins/new" class="btn btn-danger">Please sign in to RSVP</a>
                 <% end %>
-                <div class="media-body">
-                    <h5 class="mt-0"><%= @users_table.where(id: rsvp[:user_id]).to_a[0][:name] %></h5>
-                    <%= rsvp[:comments] %>
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header"><b>Event details</b></div>
+                <div class="card-body">
+                    <h5 class="card-title">Date</h5>
+                    <p class="card-text"><%= @event[:date] %></p>
+                    <h5 class="card-title">Location</h5>
+                    <p class="card-text"><%= @event[:location] %></p>
+                    <h5 class="card-title">Number of participants</h5>
+                    <p class="card-text"><%= @attending_count %></p>
                 </div>
             </div>
-        <% end %>
-        <p class="mt-5">
-            <% if @current_user %>
-                <a href="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-primary">RSVP now!</a>
-            <% else %>
-                <a href="/logins/new" class="btn btn-danger">Please sign in to RSVP</a>
-            <% end %>
-        </p>
-    </div>
-    <div class="col-sm-3">
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header"><b>Event details</b></div>
-            <div class="card-body">
-                <h5 class="card-title">Date</h5>
-                <p class="card-text"><%= @event[:date] %></p>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Location</h5>
-                <p class="card-text"><%= @event[:location] %></p>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Number of participants</h5>
-                <p class="card-text"><%= @attending_count %></p>
-            </div>
-        </div>
 
+            <iframe
+                width="auto"
+                height="300"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+                &q=<%= @event[:lat] %>,<%= @event[:lon] %>&zoom=10" allowfullscreen>
+            </iframe>
+        </div>
     </div>
 </div>
