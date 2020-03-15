@@ -2,15 +2,14 @@
 
 <form action="/users/create" method="post">
   <div class="form-group">
-    <label>Location</label>
-    <input type="text" class="form-control" name="location" disabled>
+    <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
   </div>
   <div class="form-row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="lat" disabled>
+      <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="long" disabled>
+      <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
     </div>
   </div>
   <div class="form-group">
@@ -29,5 +28,18 @@
     <label>Password</label>
     <input type="password" class="form-control" name="password">
   </div>
+
   <button type="submit" class="btn btn-primary">Sign Up</button>
+
+  <div class="form-group">
+    <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
+    </div>
+  </div>
 </form>

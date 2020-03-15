@@ -31,6 +31,7 @@ DB.create_table! :users do
   String :name
   String :email
   String :password
+  String :phone
   String :location
   Double :lat
   Double :lon

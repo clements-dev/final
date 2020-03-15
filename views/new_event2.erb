@@ -1,24 +1,14 @@
 <h2>Create a new event - Step 2</h2>
 
-<form action="/users/create" method="post">
-  <div class="form-group">
-    <label>Location</label>
-    <input type="text" class="form-control" name="location" disabled>
-  </div>
+<form action="/events/create" method="post">
   <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="lat" disabled>
+    <div class="col-md-3 mb-3">
+        <label for="inputState">Event type</label>
+        <select id="inputState" class="form-control" name="event_type">
+            <option selected>Coaching</option>
+            <option>DIY support request</option>
+        </select>
     </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="long" disabled>
-    </div>
-  </div>
-  <div class="form-group col-md-4">
-    <label for="inputState">Event type</label>
-    <select id="inputState" class="form-control" name="event_type">
-        <option selected>Coaching</option>
-        <option>DIY support request</option>
-    </select>
   </div>
   <div class="form-group">
     <label>Title</label>
@@ -29,7 +19,8 @@
     <div class="col-md-3 mb-3">
       <label for="validationTooltipy">Year</label>
       <select class="custom-select" id="validationTooltipy" name="year" required>
-        <option selected disabled value="">2020</option>
+        <option selected disabled value="">Select a year...</option>
+        <option>2020</option>
         <option>2021</option>
         <option>2022</option>
       </select>
@@ -40,7 +31,8 @@
     <div class="col-md-3 mb-3">
       <label for="validationTooltipm">Month</label>
       <select class="custom-select" id="validationTooltipm" name="month" required>
-        <option selected disabled value="">January</option>
+        <option selected disabled value="">Select a month...</option>
+        <option>January</option>
         <option>February</option>
         <option>March</option>
         <option>April</option>
@@ -60,7 +52,8 @@
     <div class="col-md-3 mb-3">
       <label for="validationTooltipd">Day</label>
       <select class="custom-select" id="validationTooltipd" name="day" required>
-        <option selected disabled value="">1</option>
+        <option selected disabled value="">Select a day...</option>
+        <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
@@ -103,5 +96,17 @@
     <textarea class="form-control" rows="3" name="description"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary">Sign Up</button>
+  <button type="submit" class="btn btn-primary">Create event</button>
+
+  <div class="form-group">
+    <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
+    </div>
+  </div>
 </form>

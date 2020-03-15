@@ -4,11 +4,11 @@
             <i class="far fa-calendar-alt"></i>
             <%= @event[:date] %>
         </h2>
-        <h1><%= @event[:title] %></h1>
+        <h2><%= @event[:title] %></h2>
         <p><%= @event[:description] %></p>
         <% for rsvp in @rsvps %>
             <div class="media">
-                <% if rsvp[:going] %>
+                <% if rsvp[:attending] %>
                     <i class="fas fa-thumbs-up fa-3x mr-3"></i>
                 <% else %>
                     <i class="fas fa-thumbs-down fa-3x mr-3"></i>
@@ -28,11 +28,11 @@
         </p>
     </div>
     <div class="col-sm-3">
-        <h3>Date</h3>
+        <h4>Date</h4>
         <p><%= @event[:date] %></p>
-        <h3>Location</h3>
+        <h4>Location</h4>
         <p><%= @event[:location] %></p>
-        <h3>Number of participants</h3>
+        <h4>Number of participants</h4>
         <p><%= @attending_count %></p>
     </div>
 </div>

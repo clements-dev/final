@@ -5,6 +5,7 @@ require "sequel"                                                                
 require "logger"                                                                      #
 require "twilio-ruby"                                                                 #
 require "bcrypt"                                                                      #
+require "geocoder"                                                                    #
 connection_string = ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite3"  #
 DB ||= Sequel.connect(connection_string)                                              #
 DB.loggers << Logger.new($stdout) unless DB.loggers.size > 0                          #
@@ -45,16 +46,17 @@ get "/events/new-2" do
     if city==""
         @location_txt = country
     else
-        @location_txt = country + "&emsp;|&emsp;" + city
+        #@location_txt = country + "&emsp;|&emsp;" + city
+        @location_txt = city
     end
     @location_lat = location_coord[0]
-    @location_long = location_coord[1]
+    @location_lon = location_coord[1]
 
     # Open second step page
     view "new_event2"
 end
 
-get "/events/create" do
+post "/events/create" do
     @event = events_table.where(id: params["id"]).to_a[0]
     @userp_name = users_table.where(id: session["user_id"]).to_a[1]
     
@@ -117,10 +119,11 @@ get "/users/new-2" do
     if city==""
         @location_txt = country
     else
-        @location_txt = country + "&emsp;|&emsp;" + city
+        #@location_txt = country + "&emsp;|&emsp;" + city
+        @location_txt = city
     end
     @location_lat = location_coord[0]
-    @location_long = location_coord[1]
+    @location_lon = location_coord[1]
 
     #Open second step page
     view "new_user2"

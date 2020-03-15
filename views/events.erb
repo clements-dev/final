@@ -1,15 +1,15 @@
-<h1>All Events</h1>
+<h2>All Events</h2>
 
-<p><h2>Request help for DIY</h2></p>
+<p><h4>Request help for DIY</h4></p>
 <p>
     <% for event in @events_request %>
-        <p><a href="/events/<%= event[:id] %>"><%= event[:title] %></a></p>
+        <p><a href="/events/<%= event[:id] %>"><%= event[:date] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:title] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:location] %></a></p>
     <% end %>
 </p>
 
-<p><h2>Coaching events</h2></p>
+<p><h4>Coaching events</h4></p>
 <p>
     <% for event in @events_coaching %>
-        <p><a href="/events/<%= event[:id] %>"><%= event[:title] %></a></p>
+        <p><a href="/events/<%= event[:id] %>"><%= event[:date] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:title] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:location] %></a></p>
     <% end %>
 </p>
