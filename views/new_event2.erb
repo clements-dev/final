@@ -1,112 +1,128 @@
 <h2>Create a new event - Step 2</h2>
 
-<form action="/events/create" method="post">
-  <div class="form-row">
-    <div class="col-md-3 mb-3">
-        <label for="inputState">Event type</label>
-        <select id="inputState" class="form-control" name="event_type">
-            <option selected>Coaching</option>
-            <option>DIY support request</option>
-        </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Title</label>
-    <input type="text" class="form-control" name="title">
-  </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <form action="/events/create" method="post">
+            <div class="form-row">
+                <div class="col-md-3 mb-3">
+                    <label for="inputState">Event type</label>
+                    <select id="inputState" class="form-control" name="event_type">
+                        <option selected>Coaching</option>
+                        <option>DIY support request</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name="title" required>
+            </div>
 
-  <div class="form-row">
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltipy">Year</label>
-      <select class="custom-select" id="validationTooltipy" name="year" required>
-        <option selected disabled value="">Select a year...</option>
-        <option>2020</option>
-        <option>2021</option>
-        <option>2022</option>
-      </select>
-      <div class="invalid-tooltip">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltipm">Month</label>
-      <select class="custom-select" id="validationTooltipm" name="month" required>
-        <option selected disabled value="">Select a month...</option>
-        <option>January</option>
-        <option>February</option>
-        <option>March</option>
-        <option>April</option>
-        <option>May</option>
-        <option>June</option>
-        <option>July</option>
-        <option>August</option>
-        <option>September</option>
-        <option>October</option>
-        <option>November</option>
-        <option>December</option>
-      </select>
-      <div class="invalid-tooltip">
-        Please select a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltipd">Day</label>
-      <select class="custom-select" id="validationTooltipd" name="day" required>
-        <option selected disabled value="">Select a day...</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-        <option>21</option>
-        <option>22</option>
-        <option>23</option>
-        <option>24</option>
-        <option>25</option>
-        <option>26</option>
-        <option>27</option>
-        <option>28</option>
-        <option>29</option>
-        <option>30</option>
-        <option>31</option>
-      </select>
-      <div class="invalid-tooltip">
-        Please select a valid state.
-      </div>
-    </div>
-  </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-4">
+                <label for="validationTooltipy">Year</label>
+                <select class="custom-select" id="validationTooltipy" name="year" required>
+                    <option selected disabled value="">Select a year...</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Please select a valid state.
+                </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                <label for="validationTooltipm">Month</label>
+                <select class="custom-select" id="validationTooltipm" name="month" required>
+                    <option selected disabled value="">Select a month...</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Please select a valid state.
+                </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                <label for="validationTooltipd">Day</label>
+                <select class="custom-select" id="validationTooltipd" name="day" required>
+                    <option selected disabled value="">Select a day...</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Please select a valid state.
+                </div>
+                </div>
+            </div>
 
-  <div class="form-group">
-    <label>Comments</label>
-    <textarea class="form-control" rows="3" name="description"></textarea>
-  </div>
+            <div class="form-group">
+                <label>Comments</label>
+                <textarea class="form-control" rows="3" name="description"></textarea>
+            </div>
 
-  <button type="submit" class="btn btn-primary">Create event</button>
+            <button type="submit" class="btn btn-primary">Create event</button>
 
-  <div class="form-group">
-    <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
-  </div>
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+            <div class="form-group">
+                <input type="text" class="form-control invisible" name="location" value="<%=@location_txt%>">
+            </div>
+            <div class="form-row">
+                <div class="col">
+                <input type="text" class="form-control invisible" placeholder="lat" name="lat" value="<%=@location_lat%>">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <p><h5><%= @location_txt%></h5></p>
+            <iframe
+                width="auto"
+                height="400"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+                &q=<%=@location_lat%>,<%=@location_lon%>&zoom=10" allowfullscreen>
+            </iframe>
+        </div>
     </div>
-    <div class="col">
-      <input type="text" class="form-control invisible" placeholder="lon" name="lon" value="<%=@location_lon%>">
-    </div>
-  </div>
-</form>
+</div>

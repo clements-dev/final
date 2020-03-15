@@ -41,7 +41,11 @@ end
 
 get "/events/new-2" do
     # Find the location coordinates
-    results = Geocoder.search(params["set_location"])
+    unless params["set_location"].empty?
+        results = Geocoder.search(params["set_location"])
+    else
+        view "new_event_failed.erb"
+    end
 
     # Get location coordinates
     location_coord = results.first.coordinates # => [lat, long]
@@ -114,7 +118,11 @@ end
 
 get "/users/new-2" do
     # Find the location coordinates
-    results = Geocoder.search(params["set_location"])
+    unless params["set_location"].empty?
+        results = Geocoder.search(params["set_location"])
+    else
+        view "new_user_failed.erb"
+    end
 
     # Get location coordinates
     location_coord = results.first.coordinates # => [lat, long]
