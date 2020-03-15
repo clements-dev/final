@@ -28,11 +28,21 @@
         </p>
     </div>
     <div class="col-sm-3">
-        <h4>Date</h4>
-        <p><%= @event[:date] %></p>
-        <h4>Location</h4>
-        <p><%= @event[:location] %></p>
-        <h4>Number of participants</h4>
-        <p><%= @attending_count %></p>
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><b>Event details</b></div>
+            <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <p class="card-text"><%= @event[:date] %></p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Location</h5>
+                <p class="card-text"><%= @event[:location] %></p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Number of participants</h5>
+                <p class="card-text"><%= @attending_count %></p>
+            </div>
+        </div>
+
     </div>
 </div>

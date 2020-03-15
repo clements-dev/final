@@ -1,15 +1,104 @@
 <h2>All Events</h2>
 
 <p><h4>Request help for DIY</h4></p>
-<p>
-    <% for event in @events_request %>
-        <p><a href="/events/<%= event[:id] %>"><%= event[:date] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:title] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:location] %></a></p>
-    <% end %>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <div class="accordion" id="accordionEvent">
+                <% for event in @events_request %>
+                    <div class="card">
+                        <div class="card-header" id="heading<%= event[:id] %>">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event[:id] %>" aria-expanded="false" aria-controls="collapse<%= event[:id] %>">
+                            <%= event[:title] %>
+                            </button>
+                        </h2>
+                        </div>
+
+                        <div id="collapse<%= event[:id] %>" class="collapse" aria-labelledby="heading<%= event[:id] %>" data-parent="#accordionEvent">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <p><b>Date: </b><%= event[:date] %></p>
+                                    </div>
+                                    <div class="col">
+                                        <p><b>Location: </b><%= event[:location] %></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p><b>Description: </b><%= event[:description] %></p>
+                                    </div>
+                                </div>                   
+                                <div class="row">
+                                    <div class="col">
+                                        <p><a href="/events/<%= event[:id] %>" class="btn btn-primary btn-sm" role="button">View</a></p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+</div>
+
+
 
 <p><h4>Coaching events</h4></p>
-<p>
-    <% for event in @events_coaching %>
-        <p><a href="/events/<%= event[:id] %>"><%= event[:date] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:title] %>&nbsp;&nbsp;-&nbsp;&nbsp;<%= event[:location] %></a></p>
-    <% end %>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <div class="accordion" id="accordionEvent">
+                <% for event in @events_coaching %>
+                    <div class="card">
+                        <div class="card-header" id="heading<%= event[:id] %>">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= event[:id] %>" aria-expanded="false" aria-controls="collapse<%= event[:id] %>">
+                            <%= event[:title] %>
+                            </button>
+                        </h2>
+                        </div>
+
+                        <div id="collapse<%= event[:id] %>" class="collapse" aria-labelledby="heading<%= event[:id] %>" data-parent="#accordionEvent">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <p><b>Date: </b><%= event[:date] %></p>
+                                    </div>
+                                    <div class="col">
+                                        <p><b>Location: </b><%= event[:location] %></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p><b>Description: </b><%= event[:description] %></p>
+                                    </div>
+                                </div>                   
+                                <div class="row">
+                                    <div class="col">
+                                        <p><a href="/events/<%= event[:id] %>" class="btn btn-primary btn-sm" role="button">View</a></p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+</div>
+
