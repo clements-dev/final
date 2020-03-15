@@ -1,0 +1,21 @@
+<h2>Create a new event - Step 1</h2>
+
+<p>
+    <a style="color: red">Location is not correct!</a>
+</p>
+
+<div class="container mt-5">
+    <p>
+        <h3>Start by choosing the location</h3>
+    </p>
+    <form class="form-inline" action="/events/new-2">
+        <div class="form-group mb-2">
+        <label for="formLocationInput" class="sr-only">Location</label>
+        <input type="text" readonly class="form-control-plaintext" id="staticLocation" value="Please type the location:">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+        <input type="text" name="set_location" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+    </form>
+</div>
