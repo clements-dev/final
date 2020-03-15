@@ -41,28 +41,28 @@ end
 
 get "/events/new-2" do
     # Find the location coordinates
-    unless params["set_location"].empty?
-        results = Geocoder.search(params["set_location"])
+    results = Geocoder.search(params["set_location"])
+    
+    unless results.first.nil?
+        # Get location coordinates
+        location_coord = results.first.coordinates # => [lat, long]
+        @country_code = results.first.country_code
+        city = results.first.city
+        country = results.first.country
+        if city==""
+            @location_txt = country
+        else
+            #@location_txt = country + "&emsp;|&emsp;" + city
+            @location_txt = city
+        end
+        @location_lat = location_coord[0]
+        @location_lon = location_coord[1]
+
+        # Open second step page
+        view "new_event2"
     else
         view "new_event_failed.erb"
     end
-
-    # Get location coordinates
-    location_coord = results.first.coordinates # => [lat, long]
-    @country_code = results.first.country_code
-    city = results.first.city
-    country = results.first.country
-    if city==""
-        @location_txt = country
-    else
-        #@location_txt = country + "&emsp;|&emsp;" + city
-        @location_txt = city
-    end
-    @location_lat = location_coord[0]
-    @location_lon = location_coord[1]
-
-    # Open second step page
-    view "new_event2"
 end
 
 post "/events/create" do
@@ -118,28 +118,28 @@ end
 
 get "/users/new-2" do
     # Find the location coordinates
-    unless params["set_location"].empty?
-        results = Geocoder.search(params["set_location"])
-    else
-        view "new_user_failed.erb"
-    end
+    results = Geocoder.search(params["set_location"])
+    
+    unless results.first.nil?
+        # Get location coordinates
+        location_coord = results.first.coordinates # => [lat, long]
+        @country_code = results.first.country_code
+        city = results.first.city
+        country = results.first.country
+        if city==""
+            @location_txt = country
+        else
+            #@location_txt = country + "&emsp;|&emsp;" + city
+            @location_txt = city
+        end
+        @location_lat = location_coord[0]
+        @location_lon = location_coord[1]
 
-    # Get location coordinates
-    location_coord = results.first.coordinates # => [lat, long]
-    @country_code = results.first.country_code
-    city = results.first.city
-    country = results.first.country
-    if city==""
-        @location_txt = country
+        #Open second step page
+        view "new_user2"
     else
-        #@location_txt = country + "&emsp;|&emsp;" + city
-        @location_txt = city
+        view "new_event_failed.erb"
     end
-    @location_lat = location_coord[0]
-    @location_lon = location_coord[1]
-
-    #Open second step page
-    view "new_user2"
 end
 
 post "/users/create" do
