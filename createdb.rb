@@ -47,8 +47,8 @@ events_table.insert(title: "Final day - KIEI_451-0_SEC81",
                     description: "End of course!",
                     date: "March 9, 2020",
                     location: "Chicago",
-                    lat: 0,
-                    lon: 0)
+                    lat: 41.8831157,
+                    lon: -87.6389398)
 
 events_table.insert(title: "Final Project - KIEI_451-0_SEC81", 
                     user_id: 0,
@@ -56,8 +56,8 @@ events_table.insert(title: "Final Project - KIEI_451-0_SEC81",
                     description: "Last project!",
                     date: "March 15, 2020",
                     location: "Chicago",
-                    lat: 0,
-                    lon: 0)
+                    lat: 41.8831157,
+                    lon: -87.6389398)
 
 cdb_hashed_password = BCrypt::Password.create("admin")
 users_table.insert(name: "admin",

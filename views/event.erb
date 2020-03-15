@@ -1,7 +1,7 @@
 <div class="container">    
     <div class="row">
         <div class="col-sm-8">
-            <h2>
+            <h2 style="color: #1E90FF">
                 <i class="far fa-calendar-alt"></i>
                 <%= @event[:date] %>
             </h2>
@@ -10,9 +10,9 @@
             <% for rsvp in @rsvps %>
                 <div class="media">
                     <% if rsvp[:attending] %>
-                        <i class="fas fa-thumbs-up fa-3x mr-3"></i>
+                        <i class="fas fa-check-circle fa-2x mr-3" style="color: green"></i>
                     <% else %>
-                        <i class="fas fa-thumbs-down fa-3x mr-3"></i>
+                        <i class="fas fa-times-circle fa-2x mr-3" style="color: red"></i>
                     <% end %>
                     <div class="media-body">
                         <h5 class="mt-0"><%= @users_table.where(id: rsvp[:user_id]).to_a[0][:name] %></h5>
@@ -29,6 +29,8 @@
             </p>
         </div>
         <div class="col-sm-4">
+            <div class="row">
+            <div class="col">
             <div class="card bg-light mb-3">
                 <div class="card-header"><b>Event details</b></div>
                 <div class="card-body">
@@ -40,14 +42,22 @@
                     <p class="card-text"><%= @attending_count %></p>
                 </div>
             </div>
+            </div>
+            </div>
 
+            <div class="row">
+            <div class="col">
+            <div class="card bg-light mb-3">
             <iframe
                 width="auto"
                 height="300"
                 frameborder="0" style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-                &q=<%= @event[:lat] %>,<%= @event[:lon] %>&zoom=10" allowfullscreen>
+                &q=<%= @event[:lat] %>,<%= @event[:lon] %>&zoom=11" allowfullscreen>
             </iframe>
+            </div>
+            </div>
+            </div>
         </div>
     </div>
 </div>

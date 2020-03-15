@@ -146,11 +146,15 @@ post "/users/create" do
     @signup_user = params["name"]
 
     # Send text message
-    client.messages.create(
-        from: "+18479122565",
-        to: params["phone"],
-        body: "Welcome " + params["name"] + " to the DIY Platform!"
-        )
+    begin
+        client.messages.create(
+            from: "+18479122565",
+            to: params["phone"],
+            body: "Welcome " + params["name"] + " to the DIY Platform!"
+            )
+    rescue
+        puts "error while sending text message"    
+    end
 
     view "create_user"
 end
@@ -161,7 +165,6 @@ end
 
 post "/logins/create" do
     user = users_table.where(email: params["email"]).to_a[0]
-    puts BCrypt::Password::new(user[:password])
     if user && BCrypt::Password::new(user[:password]) == params["password"]
         session["user_id"] = user[:id]
         @current_user = user
