@@ -33,8 +33,8 @@ DB.create_table! :users do
   String :password
   String :phone
   String :location
-  Double :lat
-  Double :lon
+  Decimal :lat
+  Decimal :lon
 end
 
 # Insert initial (seed) data
