@@ -14,8 +14,8 @@ DB.create_table! :events do
   String :description, text: true
   String :date
   String :location
-  Double :lat
-  Double :lon
+  Decimal :lat
+  Decimal :lon
 end
 DB.create_table! :rsvps do
   primary_key :id
